@@ -37,11 +37,25 @@
                 :key="guests.emailOfGuest"
                 class="guest-list-items"
             >
+
+<!--              перенести в в-селект-->
               <div class="guests-block">
                 <p class="email-guest--people">{{guests.emailOfGuest}}</p>
-                <button class="role-of-guest--people" >{{guests.roleOfGuest}}</button>
-              </div>
+                <select
+                >
+                  <option
+                      v-for="users in guests.roleOfGuest"
+                      v-bind:key="users.value"
 
+                      class="role-of-guest--people"
+                  >
+                    <span class="role-name--title">{{users.roleName}}<br></span>
+                    <span class="role-name--text">{{users.roleText}}</span>
+
+                  </option>
+                </select>
+              </div>
+<!--кінець переносу-->
               <button @click="deleteGuest(guests)" class="delete-guest-button"></button>
             </div>
 
@@ -103,14 +117,19 @@ export default {
     addedEmail() {
       const newEmail= {
         emailOfGuest: this.emailValue,
-        roleOfGuest: [
-          {
-            value: "Admin"
-          },
-          {
-            value: "Guest"
-          }
-        ]
+        roleOfGuest:
+            [
+              {
+                value: 1,
+                roleName: "Guest",
+                roleText: "Default access level, can leave tributes, share media and stories"
+              },
+              {
+                value: 2,
+                roleName: "Administrator",
+                roleText: "Can control all aspects of the website, including moderating content posted by others and changing website settings"
+              }
+            ]
       };
 
       this.guestList.push(newEmail);
@@ -118,7 +137,7 @@ export default {
       localStorage.setItem('emails-list', JSON.stringify (this.guestList));
     },
     deleteGuest ( deleteToGuest ) {
-      this.guestList = this.guestList.filter( guests => guests != deleteToGuest);
+      this.guestList = this.guestList.filter( guests => guests !== deleteToGuest);
     }
   }
 
