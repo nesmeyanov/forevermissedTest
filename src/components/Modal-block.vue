@@ -25,8 +25,6 @@
                <button class="invite-icloud-btn invite-social--buttons" id="inviteIcloudBtn"> </button>
              </div>
            </div>
-
-
            <hr class="first-block--line">
 
 
@@ -41,20 +39,25 @@
 <!--              перенести в в-селект-->
               <div class="guests-block">
                 <p class="email-guest--people">{{guests.emailOfGuest}}</p>
-                <select
-                >
-                  <option
-                      v-for="users in guests.roleOfGuest"
-                      v-bind:key="users.value"
+<!--                <button class="choose-guest-role">{{guests.roleOfGuest}}</button>-->
+                <div class="role-of-guest--people--container">
+<!--                  <template-->
+<!--                      v-for="users in guests.roleOfGuest"-->
+<!--                      v-bind:key="users.value"-->
 
-                      class="role-of-guest--people"
-                  >
-                    <span class="role-name--title">{{users.roleName}}<br></span>
-                    <span class="role-name--text">{{users.roleText}}</span>
 
-                  </option>
-                </select>
+<!--                  >-->
+<!--                    <div>-->
+<!--                      <span class="role-name&#45;&#45;title">{{users.roleName}}<br></span>-->
+<!--                      <span class="role-name&#45;&#45;text">{{users.roleText}}</span>-->
+<!--                    </div>-->
+<!--                  </template>-->
+                  <v-select
+                    :options="options"
+                  />
+
               </div>
+            </div>
 <!--кінець переносу-->
               <button @click="deleteGuest(guests)" class="delete-guest-button"></button>
             </div>
@@ -77,12 +80,28 @@
 
 <script>
 import { onMounted, onUnmounted } from "vue";
+import vSelect from "./v-select.vue";
 
 export default {
+  components: {
+    vSelect
+  },
   data() {
     return {
       emailValue: "",
-      guestList: []
+      guestList: [],
+      options:  [
+            {
+              value: 1,
+              roleName: "Guest",
+              roleText: "Default access level, can leave tributes, share media and stories"
+            },
+            {
+              value: 2,
+              roleName: "Administrator",
+              roleText: "Can control all aspects of the website, including moderating content posted by others and changing website settings"
+            }
+          ]
     }
   },
   props: {
@@ -116,20 +135,20 @@ export default {
   methods: {
     addedEmail() {
       const newEmail= {
-        emailOfGuest: this.emailValue,
-        roleOfGuest:
-            [
-              {
-                value: 1,
-                roleName: "Guest",
-                roleText: "Default access level, can leave tributes, share media and stories"
-              },
-              {
-                value: 2,
-                roleName: "Administrator",
-                roleText: "Can control all aspects of the website, including moderating content posted by others and changing website settings"
-              }
-            ]
+        emailOfGuest: this.emailValue
+        // roleOfGuest:
+        //     [
+        //       {
+        //         value: 1,
+        //         roleName: "Guest",
+        //         roleText: "Default access level, can leave tributes, share media and stories"
+        //       },
+        //       {
+        //         value: 2,
+        //         roleName: "Administrator",
+        //         roleText: "Can control all aspects of the website, including moderating content posted by others and changing website settings"
+        //       }
+        //     ]
       };
 
       this.guestList.push(newEmail);
@@ -340,6 +359,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
+  position: relative;
 }
 .email-guest--people {
   padding: 10px;
@@ -347,21 +367,6 @@ body {
 .role-of-guest--people {
   padding-right: 10px;
 }
-.role-of-guest--people:after {
-  content: "";
-  background-image: url("../assets/dropdownBtn.png");
-  background-size: contain;
-  width: 10px;
-  height: 10px;
-  padding-right: 11px;
-  margin-right: 13px;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-left: 5px;
-}
-
-
-
 
 .bottom-invite--container {
   width: 100%;
@@ -409,5 +414,13 @@ body {
   color: #fff;
   font-size: 18px;
   font-weight: 400;
+}
+.role-of-guest--people {
+  display: block;
+}
+.role-of-guest--people--container {
+  position: relative;
+  margin-top: 230px;
+  margin-right: 21px;
 }
 </style>

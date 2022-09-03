@@ -22,9 +22,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'openSansRegular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
