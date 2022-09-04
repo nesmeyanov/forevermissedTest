@@ -448,9 +448,11 @@ body {
 }
 
 .role-of-guest--people--container {
-  position: relative;
-  margin-top: 230px;
-  margin-right: 21px;
-  z-index: 1;
+  /*position: relative;*/
+  /*margin-top: 230px;*/
+  /*margin-right: 21px;*/
+  /*z-index: 1;*/
+  position: absolute;
+  right: 0;
 }
 </style>

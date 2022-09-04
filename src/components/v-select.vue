@@ -60,23 +60,27 @@ export default {
 
 <style>
 .v-select {
-  cursor: pointer;
-  position: relative;
-  width: 300px;
-  height: 140px;
+  /*cursor: pointer;*/
+  /*position: relative;*/
+  /*width: 300px;*/
+  /*height: 140px;*/
 }
 .options {
+  position: absolute;
   width: 318px;
   height: 188px;
   background-color: #FFF8EF;
   box-shadow: 4px 4px 24px rgb(0 0 0 / 16%);
   border-radius: 6px;
+  right: 30px;
+  top: -17px;
+  z-index: 1;
 }
 .selected-block {
   position: absolute;
-  top: -53px;
+  /*top: 15px;*/
   right: 3px;
-  width: 108px;
+  /*width: 108px;*/
 }
 .selected-block:after {
   content: "";
