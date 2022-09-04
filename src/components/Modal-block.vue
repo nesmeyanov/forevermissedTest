@@ -45,8 +45,8 @@
 
                   <v-select
                     :options="options"
-                    @select="optionSelect"
-                    :selected="selected"
+                    @select="optionSelect(guests, $event)"
+                    :selected="guests.selected"
                   />
 
               </div>
@@ -126,30 +126,20 @@ export default {
     }
   },
   methods: {
-    optionSelect(option){
-      this.selected = option.roleName
+    optionSelect (guest, roleParams) {
+      console.log('11111', guest, roleParams);
+      guest.selected = roleParams.roleName;
+      localStorage.setItem('emails-list', JSON.stringify(this.guestList));
     },
     addedEmail() {
       const newEmail= {
-        emailOfGuest: this.emailValue
-        // roleOfGuest:
-        //     [
-        //       {
-        //         value: 1,
-        //         roleName: "Guest",
-        //         roleText: "Default access level, can leave tributes, share media and stories"
-        //       },
-        //       {
-        //         value: 2,
-        //         roleName: "Administrator",
-        //         roleText: "Can control all aspects of the website, including moderating content posted by others and changing website settings"
-        //       }
-        //     ]
+        emailOfGuest: this.emailValue,
+        selected: this.options[0].roleName,
       };
 
       this.guestList.push(newEmail);
       this.emailValue = "";
-      localStorage.setItem('emails-list', JSON.stringify (this.guestList));
+      localStorage.setItem('emails-list', JSON.stringify(this.guestList));
     },
     deleteGuest ( deleteToGuest ) {
       this.guestList = this.guestList.filter( guests => guests !== deleteToGuest);
