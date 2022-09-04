@@ -64,7 +64,6 @@ export default {
   position: relative;
   width: 300px;
   height: 140px;
-  z-index: 999;
 }
 .options {
   width: 318px;
@@ -72,7 +71,6 @@ export default {
   background-color: #FFF8EF;
   box-shadow: 4px 4px 24px rgb(0 0 0 / 16%);
   border-radius: 6px;
-  z-index: 111;
 }
 .selected-block {
   position: absolute;
@@ -98,26 +96,11 @@ export default {
   line-height: 20px;
   font-weight: 600;
   padding-bottom: 10px;
-  color: #3C1F1D;
 }
-/*.role-name--title:after {*/
-/*  content: "";*/
-/*  background-image: url("../assets/dropdownBtn.png");*/
-/*  background-size: contain;*/
-/*  width: 10px;*/
-/*  height: 10px;*/
-/*  padding-right: 11px;*/
-/*  margin-right: 13px;*/
-/*  background-repeat: no-repeat;*/
-/*  background-position: center;*/
-/*  margin-left: 5px;*/
-/*  text-align: left;*/
-/*}*/
 .role-name--text{
   font-size: 12px;
   line-height: 16px;
   color: #876A68;
-  /*padding: 3px 16px 12px 48px;*/
   text-align: left;
   padding-bottom: 10px;
 }

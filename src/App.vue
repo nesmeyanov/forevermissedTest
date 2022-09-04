@@ -9,7 +9,7 @@
 
 <script>
 import { ref } from "vue"
-import Modal from "./components/Modal-block.vue"
+import Modal from "./components/modal-block.vue"
 export default {
   name: 'App',
   components: {
