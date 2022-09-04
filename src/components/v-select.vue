@@ -60,10 +60,8 @@ export default {
 
 <style>
 .v-select {
-  /*cursor: pointer;*/
-  /*position: relative;*/
-  /*width: 300px;*/
-  /*height: 140px;*/
+  cursor: pointer;
+
 }
 .options {
   position: absolute;
@@ -78,9 +76,8 @@ export default {
 }
 .selected-block {
   position: absolute;
-  /*top: 15px;*/
   right: 3px;
-  /*width: 108px;*/
+  top: -6px;
 }
 .selected-block:after {
   content: "";
@@ -94,27 +91,40 @@ export default {
   background-position: center;
   margin-left: 5px;
 }
+.selected-block:after:active {
+  transform: rotate(-90deg);
+}
 .role-name--title {
   color: #3C1F1D;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
-  padding-bottom: 10px;
 }
 .role-name--text{
   font-size: 12px;
   line-height: 16px;
   color: #876A68;
   text-align: left;
-  padding-bottom: 10px;
 }
 .role-name--container {
   background: #FFF8EF;
+  padding: 15px 16px 16px 40px;
+  border-radius: 6px;
 }
 .role-name--container:hover {
   background: #F6EFE6;
 }
-.role-name--container {
-    padding: 12px 16px 12px 40px;
+
+.role-name--container:hover:before {
+  content: "";
+  background-image: url("../assets/acceptIconImage.png");
+  background-size: contain;
+  width: 13px;
+  height: 13px;
+  padding-right: 11px;
+  margin-right: 13px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: -24px;
 }
 </style>

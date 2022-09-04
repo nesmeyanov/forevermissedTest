@@ -42,8 +42,8 @@ body {
 }
 .open-modal-button {
   top: 573px;
-  left: 68em;
-  width: 271px;
+  left: 71.4em;
+  width: 272px;
   height: 48px;
   cursor: pointer;
   opacity: 0;
@@ -57,10 +57,6 @@ body {
   font-weight: 600;
   font-size: 27px;
   line-height: 44px;
-  font-feature-settings: 'ss01' on;
   color: #3C1F1D;
-  flex: none;
-  order: 0;
-  flex-grow: 1;
 }
 </style>

@@ -28,6 +28,7 @@
                 <button
                     @click="addedEmail"
                     type="submit"
+                    :disabled="!validated"
                     class="input-email-field--submit-btn"
                     id="inputEmailFieldSubmitBtn"
                 >
@@ -164,6 +165,15 @@ export default {
     },
     deleteGuest(deleteToGuest) {
       this.guestList = this.guestList.filter(guests => guests !== deleteToGuest);
+    },
+    validateEmail(email) {
+      const va = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+      return va.test(email);
+    }
+  },
+  computed: {
+    validated(){
+      return this.validateEmail(this.emailValue)
     }
   }
 
@@ -214,7 +224,6 @@ body {
   max-height: 743px;
 }
 
-
 .fade-leave-active {
   transition: opacity 0.5s;
 }
@@ -250,19 +259,12 @@ body {
 
 .input-email-field {
   margin-right: 12px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   padding: 8px 16px;
-  gap: 8px;
   width: 425px;
   height: 29px;
   background: #FFFFFF;
   border: 1px solid rgba(51, 51, 51, 0.16);
   border-radius: 6px;
-  flex: none;
-  order: 0;
-  flex-grow: 1;
   font-size: 16px;
   color: #ACAAAD;
 }
@@ -283,16 +285,13 @@ body {
   justify-content: center;
   align-items: center;
   padding: 12px 24px;
-  gap: 8px;
   width: 79px;
   height: 48px;
   opacity: 0.56;
   border: 1px solid #D1CAC1;
   border-radius: 6px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .adress-book-container {
@@ -309,43 +308,28 @@ body {
   height: 40px;
   border: none;
   background-color: transparent;
-}
-
-.invite-yahoo-btn {
-  background-image: url("../assets/yahooIconImage.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   padding: 0;
   box-sizing: border-box;
+}
+
+.invite-yahoo-btn {
+  background-image: url("../assets/yahooIconImage.png");
   margin-left: 9px;
 }
 
 .invite-gmail-btn {
   background-image: url("../assets/gmailIconImage.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .invite-aol-btn {
   background-image: url("../assets/aolIconImage.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .invite-icloud-btn {
   background-image: url("../assets/icloudIconImage.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .first-block--line {
@@ -369,6 +353,9 @@ body {
   border: none;
   background-color: transparent;
   margin-left: 9px;
+}
+.delete-guest-button:hover {
+  cursor: pointer;
 }
 
 .guest-list-items {
