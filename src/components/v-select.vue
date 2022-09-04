@@ -4,7 +4,7 @@
         class="selected-block"
         @click="areRoleAreVisible = !areRoleAreVisible"
         >
-      Selected role</p>
+      {{selected}}</p>
     <div
         v-if="areRoleAreVisible"
         class="options">
@@ -29,6 +29,10 @@ export default {
       default() {
         return []
       }
+    },
+    selected: {
+      type: String,
+      default: ""
     }
   },
   data() {
@@ -37,9 +41,19 @@ export default {
     }
   },
   methods: {
-    selectRole(){
-
+    selectRole(option){
+      this.$emit('select', option)
+      this.areRoleAreVisible = false;
+    },
+    hideSelect(){
+      this.areRoleAreVisible = false;
     }
+  },
+  mounted() {
+    document.addEventListener('click', this.hideSelect, true)
+  },
+  beforeUnmount() {
+    document.removeEventListener('click', this.hideSelect)
   }
 }
 </script>

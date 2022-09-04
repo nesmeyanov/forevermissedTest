@@ -39,26 +39,18 @@
 <!--              перенести в в-селект-->
               <div class="guests-block">
                 <p class="email-guest--people">{{guests.emailOfGuest}}</p>
+                <p>{{guests.emailOfGuest.selected}}</p>
 <!--                <button class="choose-guest-role">{{guests.roleOfGuest}}</button>-->
                 <div class="role-of-guest--people--container">
-<!--                  <template-->
-<!--                      v-for="users in guests.roleOfGuest"-->
-<!--                      v-bind:key="users.value"-->
 
-
-<!--                  >-->
-<!--                    <div>-->
-<!--                      <span class="role-name&#45;&#45;title">{{users.roleName}}<br></span>-->
-<!--                      <span class="role-name&#45;&#45;text">{{users.roleText}}</span>-->
-<!--                    </div>-->
-<!--                  </template>-->
                   <v-select
                     :options="options"
+                    @select="optionSelect"
+                    :selected="selected"
                   />
 
               </div>
             </div>
-<!--кінець переносу-->
               <button @click="deleteGuest(guests)" class="delete-guest-button"></button>
             </div>
 
@@ -101,7 +93,8 @@ export default {
               roleName: "Administrator",
               roleText: "Can control all aspects of the website, including moderating content posted by others and changing website settings"
             }
-          ]
+          ],
+      selected: 'Guest'
     }
   },
   props: {
@@ -133,6 +126,9 @@ export default {
     }
   },
   methods: {
+    optionSelect(option){
+      this.selected = option.roleName
+    },
     addedEmail() {
       const newEmail= {
         emailOfGuest: this.emailValue
