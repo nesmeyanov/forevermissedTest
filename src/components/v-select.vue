@@ -78,6 +78,7 @@ export default {
   position: absolute;
   right: 3px;
   top: -6px;
+  color: #3C1F1D;
 }
 .selected-block:after {
   content: "";

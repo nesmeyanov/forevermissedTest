@@ -301,6 +301,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
+  color: #3C1F1D;
 }
 
 .invite-social--buttons {
@@ -380,6 +381,7 @@ body {
 
 .email-guest--people {
   padding: 10px;
+  color: #3C1F1D;
 }
 
 .bottom-invite--container {
@@ -400,6 +402,7 @@ body {
 
 .bottom-invite--text-field::placeholder {
   font-size: 16px;
+  color: #ACAAAD;
 }
 
 .footer-invites--container {
