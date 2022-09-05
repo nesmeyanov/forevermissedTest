@@ -51,11 +51,11 @@ body {
 }
 .invite-others--header {
   width: 514px;
-  height: 32px;
+  height: 31px;
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
-  font-size: 27px;
+  font-size: 24px;
   line-height: 44px;
   color: #3C1F1D;
 }

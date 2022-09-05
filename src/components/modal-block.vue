@@ -318,7 +318,6 @@ body {
 
 .invite-yahoo-btn {
   background-image: url("../assets/yahooIconImage.png");
-  margin-left: 9px;
 }
 
 .invite-gmail-btn {
@@ -386,7 +385,7 @@ body {
 
 .bottom-invite--container {
   width: 100%;
-  height: 94px;
+  height: 96px;
 }
 
 .bottom-invite--text-field {
@@ -406,7 +405,7 @@ body {
 }
 
 .footer-invites--container {
-  width: 99%;
+  width: 98%;
   height: 50px;
   font-style: normal;
   font-weight: 400;

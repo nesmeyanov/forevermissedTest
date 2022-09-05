@@ -70,8 +70,8 @@ export default {
   background-color: #FFF8EF;
   box-shadow: 4px 4px 24px rgb(0 0 0 / 16%);
   border-radius: 6px;
-  right: 30px;
-  top: -17px;
+  right: 21px;
+  top: 14px;
   z-index: 1;
 }
 .selected-block {
