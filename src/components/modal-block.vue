@@ -291,6 +291,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
+  color: #3C1F1D;
 }
 
 .invite-social--buttons {
@@ -307,7 +308,6 @@ body {
 
 .invite-yahoo-btn {
   background-image: url("../assets/yahooIconImage.png");
-  margin-left: 9px;
 }
 
 .invite-gmail-btn {
@@ -370,11 +370,12 @@ body {
 
 .email-guest--people {
   padding: 10px;
+  color: #3C1F1D;
 }
 
 .bottom-invite--container {
   width: 100%;
-  height: 94px;
+  height: 96px;
 }
 
 .bottom-invite--text-field {
@@ -390,10 +391,11 @@ body {
 
 .bottom-invite--text-field::placeholder {
   font-size: 16px;
+  color: #ACAAAD;
 }
 
 .footer-invites--container {
-  width: 99%;
+  width: 98%;
   height: 50px;
   font-style: normal;
   font-weight: 400;
