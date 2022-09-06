@@ -19,7 +19,6 @@
               <div class="invite-input-field--container">
                 <input
                     v-model="emailValue"
-                    v-on:keydown.enter="addedEmail"
                     class="input-email-field"
                     id="inputEmailField"
                     type="email"
@@ -28,7 +27,6 @@
                 <button
                     @click="addedEmail"
                     type="submit"
-                    :disabled="!validated"
                     class="input-email-field--submit-btn"
                     id="inputEmailFieldSubmitBtn"
                 >
@@ -165,17 +163,9 @@ export default {
     },
     deleteGuest(deleteToGuest) {
       this.guestList = this.guestList.filter(guests => guests !== deleteToGuest);
-    },
-    validateEmail(email) {
-      const va = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-      return va.test(email);
     }
   },
-  computed: {
-    validated(){
-      return this.validateEmail(this.emailValue)
-    }
-  }
+  computed: {}
 
 }
 </script>
@@ -433,13 +423,30 @@ body {
   font-size: 18px;
   font-weight: 400;
 }
+.footer-invites--send-button:hover {
+  cursor: pointer;
+}
 
 .role-of-guest--people--container {
-  /*position: relative;*/
-  /*margin-top: 230px;*/
-  /*margin-right: 21px;*/
-  /*z-index: 1;*/
   position: absolute;
   right: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64362d;
+  /*border-radius: 10px;*/
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
 }
 </style>
