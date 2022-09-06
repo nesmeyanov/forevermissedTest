@@ -77,7 +77,7 @@ export default {
 .selected-block {
   position: absolute;
   right: 3px;
-  top: -6px;
+  top: -8px;
   color: #3C1F1D;
 }
 .selected-block:after {
